@@ -12,6 +12,50 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function friends()
+    {
+        return $this->hasMany(Friend::class);
+    }
+
+    public function looking_for_partys()
+    {
+        return $this->hasMany(Looking_for_party::class);
+    }
+
+    public function gaming_platform()
+    {
+        return $this->belongsTo(Gaming_platform::class);
+    }
+
+    public function notifications()
+    {
+        return $this->hasMany(notification::class);
+    }
+    public function comments()
+    {
+        return $this->hasMany(comment::class);
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function game_users()
+    {
+        return $this->hasMany(Game_user::class);
+    }
+
+    public function user_ranks()
+    {
+        return $this->hasMany(User_rank::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

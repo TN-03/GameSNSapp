@@ -18,6 +18,10 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->string('play_timezone',20);
+            $table->string('profile_image_path',255)->nullable();
+            $table->date('birthdate')->nullable();
+            $table->string('bio',200)->nullable();
             $table->timestamps();
         });
     }
