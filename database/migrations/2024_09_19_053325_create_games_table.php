@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('genre');
-            $table->string('platform');
-            $table->string('body');
+            $table->string('body',500);
         });
     }
 

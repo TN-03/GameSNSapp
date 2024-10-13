@@ -20,7 +20,9 @@ class UserSeeder extends Seeder
             'name' => 'testuser1',
             'email' => 'test1@example.com',
             'password' => Hash::make('password123'),
-            'play_timezone' => '21:00~24:00',
+            'play_start_time' => '21:00',
+            'play_end_time' => '24:00',
+            'gaming_platform_id' => 1,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
@@ -29,7 +31,9 @@ class UserSeeder extends Seeder
             'name' => 'testuser2',
             'email' => 'test2@example.com',
             'password' => Hash::make('password123'),
-            'play_timezone' => '20:00~23:00',
+            'play_start_time' => '20:00',
+            'play_end_time' => '23:00',
+            'gaming_platform_id' => 3,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
