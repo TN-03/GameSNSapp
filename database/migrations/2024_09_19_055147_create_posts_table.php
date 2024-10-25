@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('game_id')->constrained('games','id');
             $table->string('content');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

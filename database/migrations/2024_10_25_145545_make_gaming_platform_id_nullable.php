@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('gaming_platform_id')->constrained('gaming_platforms','id');
+            $table->unsignedBigInteger('gaming_platform_id')->nullable()->change();
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->unsignedBigInteger('gaming_platform_id')->nullable(false)->change();
         });
     }
 };
