@@ -21,7 +21,7 @@ class Game extends Model
 
     public function questions()
     {
-        return $this->hasMany(Questions::class);
+        return $this->hasMany(Question::class);
     }
 
     public function ranks()
@@ -32,5 +32,15 @@ class Game extends Model
     public function roles()
     {
         return $this->hasMany(Role::class);
+    }
+
+    public function looking_for_partys()
+    {
+        return $this->hasMany(Looking_for_party::class);
+    }
+
+    public function getByGame(int $limit_count = 5)
+    {
+        return $this->posts()->with('game')->orderBy('updated_at','DESC')->paginate($limit_count);
     }
 }

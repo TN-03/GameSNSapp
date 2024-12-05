@@ -29,7 +29,7 @@
             </form>
         </div>
         <div class="footer">
-            <a href="/GameVerse">戻る</a>
+            <a href="/">戻る</a>
         </div>
     </body>
 </html>

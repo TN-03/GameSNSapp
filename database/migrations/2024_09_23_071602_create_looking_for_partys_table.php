@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('looking_for_partys', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('game_id')->constrained('games','id');
+            $table->foreignId('user_id')->constrained('users','id');
             $table->string('content');
-            $table->string('is_dead_line');
+            $table->string('is_dead_line')->nullable();
+            $table->timestamps();
         });
     }
 

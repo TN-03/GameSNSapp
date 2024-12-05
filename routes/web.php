@@ -1,8 +1,14 @@
 <?php
 
+use App\Http\Controllers\PartyController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\AnswerController;
+use App\Models\Answer;
+use App\Models\Looking_for_party;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,24 +21,35 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/GameVerse', [PostController::class,'index'])->name('GameVerse');
+Route::controller(PostController::class)->middleware(['auth'])->group(function () {
+    Route::get('/', 'index')->name('index');
 
-Route::get('/posts/create',[PostController::class,'create']);
+    Route::get('/posts/{post}/create','create')->name('create');
+    
+    Route::post('/posts','store')->name('posts.store');
+    
+    Route::get('posts/{post}/edit','edit')->name('edit');
+    
+    Route::put('posts/{post}','update')->name('update');
+    
+    Route::delete('/posts/{post}','delete')->name('delete');
+});
 
-Route::post('/posts',[PostController::class,'store']);
+Route::get('/games/{game}/posts',[PostController::class,'byGame'])->name('posts.by_game');
 
-Route::get('posts/{post}/edit',[PostController::class,'edit']);
-Route::put('posts/{post}',[PostController::class,'update']);
+Route::post('/posts/{post}/comments',  [CommentController::class,'storeComment'])->name('comments.store');
+Route::post('/looking_for_partys',[PartyController::class,'Partystore'])->name('looking_for_partys.store');
 
-Route::delete('/posts/{post}',[PostController::class,'delete']);
+Route::get('/questions',[QuestionController::class,'index'])->name('questions.index');
+Route::get('/questions/{question}/create',[QuestionController::class,'create'])->name('questions.create');
+Route::post('/questions',[QuestionController::class,'store'])->name('questions.store');
+Route::delete('/questions/{question}',[QuestionController::class,'delete'])->name('questions.delete');
+
+Route::post('/questions/{question}/answers',  [AnswerController::class,'storeAnswer'])->name('answers.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

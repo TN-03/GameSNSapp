@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('profile_image_path',255)->nullable();
             $table->date('birthdate')->nullable();
             $table->string('bio',200)->nullable();
-            $table->foreignId('gaming_platform_id')->constrained('gaming_platforms','id')->nullable();
+            $table->foreignId('gaming_platform_id')->nullable()->constrained('gaming_platforms')->cascadeOnDelete();
             $table->timestamps();
         });
     }

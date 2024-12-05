@@ -15,8 +15,15 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('GameVerse')" :active="request()->routeIs('GameVerse')">
-                        {{ __('GamerVerse') }}
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
+                        {{ __('Home') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('questions.index')" :active="request()->routeIs('questions.index')">
+                        {{ __('Question') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -72,6 +79,11 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('index')" :active="request()->routeIs('index')">
+                {{ __('index') }}
             </x-responsive-nav-link>
         </div>
 

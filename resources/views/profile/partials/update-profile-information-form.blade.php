@@ -47,6 +47,28 @@
             @endif
         </div>
 
+        <!--生年月日-->
+        <div>
+           <label for="birthdate" class="block text-gray-700">生年月日</label>
+           <input type="date" id="birthdate" name="birthdate" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+        </div>
+
+        <!--プラットフォーム-->
+        <div>
+            <label for="platform" class="block text-gray-700">プラットフォーム</label>
+            <select id="platform" name="platform" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                <option value="">選択してください</option>
+                <option value="1">PlayStation</option>
+                <option value="2">PC</option>
+                <option value="3">Nintendo Switch</option>
+                <option value="4">Xbox</option>
+            </select>
+        </div>
+
+        <!--プレイしているゲーム-->
+        
+
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 

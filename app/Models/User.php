@@ -56,6 +56,11 @@ class User extends Authenticatable
         return $this->hasMany(User_rank::class);
     }
 
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
