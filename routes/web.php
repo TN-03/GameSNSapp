@@ -26,7 +26,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::controller(PostController::class)->middleware(['auth'])->group(function () {
-    Route::get('/', 'index')->name('index');
+    Route::get('/index', 'index')->name('index');
 
     Route::get('/posts/{post}/create','create')->name('create');
     
